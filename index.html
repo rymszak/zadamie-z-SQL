@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <header><h1>Serwis Alfa</h1></header><div id="all">
+        <header><h1>Serwis Alfa</h1></header><section class="all">
         <main><h2>zamówienie</h2>
         <p><h3><form action="" method="post">
             <label for="surname">Nazwisko: <input type="text" id="surname" name="surname"></label>
@@ -20,12 +20,15 @@
                 <option value="problem z klawiatura">problem z klawiaturą</option>
             </select></label><br></br>
             <label for="priority">piorytet <br> niski<input type="radio" name="priority" id="low" value="low"> średni<input type="radio" name="priority" id="mid" value="mid"> wysoki<input type="radio" name="priority" id="high" value="high"></label>
-        </form></h3></p></main>
+        <br><button name="send">prześlij zgłoszenie</button></form></h3></p></main>
         <aside><h2>logowanie</h2>
             <form action="" method="post"><h3>
-            <label for="mail">Podaj email <input type="email" name="mail" id="mail"></label>
-            <label for="password">podaj hasło <input type="password" name="password" id="password"></label>
-        </h3></form></aside></div>
+            <label for="lagname">podaj login <input type="email" name="mail" id="mail"></label> <br>
+            <label for="password">podaj hasło <input type="password" name="password" id="password"></label><br>
+            <button name="login">zaloguj</button>
+        </h3></form></aside>
+    </section>
     </div>
+    <footer>&copy Rymsza Stępień Roszkosz Cygan John</footer>
 </body>
 </html>
