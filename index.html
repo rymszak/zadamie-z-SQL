@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serwis_Alfa.pl</title>
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 <body>
     <div class="container">
         <header><h1>Serwis Alfa</h1></header><section class="all">
         <main><h2>zamówienie</h2>
-        <p><h3><form action="przesyl.php" method="post">
+        <p><h3><form action="przesyl.php" method="get">
             <label for="surname">Nazwisko: <input type="text" id="surname" name="surname"></label>
            <br> <label for="firm">firma: <input type="text" id="firm" name="firm"></label>
             <br><label for="problem">Problem: <select name="problem" id="problem">
@@ -20,11 +21,11 @@
                 <option value="problem z klawiatura">problem z klawiaturą</option>
             </select></label><br></br>
             <label for="priority">piorytet <br> niski<input type="radio" name="priority" id="low" value="low"> średni<input type="radio" name="priority" id="mid" value="mid"> wysoki<input type="radio" name="priority" id="high" value="high"></label>
-        <br><button name="send">prześlij zgłoszenie</button></form></h3></p></main>
+        <br><button name="send" id="send">prześlij zgłoszenie</button></form></h3></p></main>
         <aside><h2>logowanie</h2>
             <form action="index.php" method="post"><h3>
-            <label for="lagname">podaj login <input type="email" name="mail" id="mail"></label> <br>
-            <label for="password">podaj hasło <input type="password" name="password" id="password"></label><br>
+            <label for="userLogin">podaj login <input type="text" name="userLogin" id="userLogin"></label><br>
+            <label for="userPassword">podaj hasło <input type="password" name="userPassword" id="userPassword"></label><br>
             <button name="login">zaloguj</button>
         </h3></form></aside>
     </section>
