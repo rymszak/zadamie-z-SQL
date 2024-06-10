@@ -27,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['send'])) {
 
     if (empty($surname) || empty($firm) || empty($problem) || empty($priority)) {
         $message = "Wypełnij dane poprawnie.";
-    } else {
+    } 
+    else {
         $sql = "SELECT id FROM klienci WHERE nazwisko='$surname' AND firma='$firm'";
         $result = $conn->query($sql);
 
@@ -44,29 +45,31 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['send'])) {
         } 
     }
 }
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+// if ($_SERVER["REQUEST_METHOD"] == "GET") {
     
-    $userLogin = $_POST["userLogin"];
-    $userPassword = $_POST["userPassword"];
+//     $userLogin = $_GET["userLogin"];
+//     $userPassword = $_GET["userPassword"];
 
     
-    if (empty($userLogin) || empty($userPassword)) {
-        $message = "Proszę wypełnić wszystkie pola.";
-    } else {
+//     if (empty($userLogin) || empty($userPassword)) {
+//         $message = "Proszę wypełnić wszystkie pola.";
+//     } else {
         
-        $validUserLogin = "root";
-        $validUserPassword = "";
+//         $validUserLogin = "root";
+//         $validUserPassword = "";
 
-        if ($userLogin === $validUserLogin && $userPassword === $validUserPassword) {
+//         if ($userLogin === $validUserLogin && $userPassword === $validUserPassword) {
             
-            header("pracownik.php");
-            exit;
-        } else {
+//             header("pracownik.php");
+//             exit;
+//         } else {
             
-            $message = "Niepoprawny login lub hasło.";
-        }
-    }
-}
+//             $message = "Niepoprawny login lub hasło.";
+//         }
+//     }
+// }
 $conn->close();
 
 ?>
@@ -114,7 +117,7 @@ $conn->close();
             </main>
             <aside>
                 <h2>logowanie</h2>
-                <form action="pracownik.php" method="post">
+                <form action="pracownik.php" method="get">
                     <label for="userLogin">podaj login <input type="text" name="userLogin" id="userLogin"></label><br>
                     <label for="userPassword">podaj hasło <input type="password" name="userPassword" id="userPassword"></label><br>
                     <button type="submit" name="login">zaloguj</button>
