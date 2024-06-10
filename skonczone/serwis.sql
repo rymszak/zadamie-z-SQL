@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 07 Cze 2024, 14:05
--- Wersja serwera: 10.4.27-MariaDB
--- Wersja PHP: 7.4.33
+-- Generation Time: Cze 10, 2024 at 01:22 PM
+-- Wersja serwera: 10.4.32-MariaDB
+-- Wersja PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `serwis`
+-- Database: `serwis`
 --
 
 -- --------------------------------------------------------
@@ -36,11 +36,13 @@ CREATE TABLE `klienci` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `klienci`
+-- Dumping data for table `klienci`
 --
 
 INSERT INTO `klienci` (`id`, `nazwisko`, `firma`, `ostatnie_logowanie`, `data_utworzenia`) VALUES
-(1, 'kowalski', 'januszex', '2024-06-12 00:00:00', '2024-06-01');
+(1, 'kowalski', 'januszex', '2024-06-12 00:00:00', '2024-06-01'),
+(2, 'Nowak', 'TechCorp', NULL, '2024-06-10'),
+(4, 'Rymsza', 'Beta', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -55,7 +57,7 @@ CREATE TABLE `konta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `konta`
+-- Dumping data for table `konta`
 --
 
 INSERT INTO `konta` (`id_klienta`, `login`, `haslo`) VALUES
@@ -77,12 +79,19 @@ CREATE TABLE `zgloszenia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `zgloszenia`
+-- Dumping data for table `zgloszenia`
 --
 
 INSERT INTO `zgloszenia` (`id_zgloszenia`, `id_klienta`, `problem`, `komentarz`, `priorytet`, `data_zgloszenia`) VALUES
-(1, 1, 'niedziałający_komputer', 'komentarz', 7, '2024-06-07 10:52:59'),
-(2, 1, 'niedziałający_komputer', 'test', 3, '2024-06-07 10:54:32');
+(3, 4, 'problem_z_klawiaturą', 'klawiatura przestała działać', 0, '2024-06-10 10:06:22'),
+(4, 4, 'wyczyszczenie_monitora', 'monitor', 0, '2024-06-10 10:08:17'),
+(5, 4, 'niedziałający_komputer', 'pc', 0, '2024-06-10 10:08:35'),
+(6, 4, 'niedziałający_komputer', '', 1, '2024-06-10 10:09:22'),
+(7, 4, 'problem_z_klawiaturą', '', 0, '2024-06-10 10:09:33'),
+(8, 4, 'wyczyszczenie_monitora', '', 2, '2024-06-10 10:09:43'),
+(9, 4, 'niedziałający_komputer', '', 0, '2024-06-10 10:19:54'),
+(10, 4, 'problem_z_klawiaturą', 'klawiatura', 0, '2024-06-10 10:20:36'),
+(11, 4, 'niedziałający_komputer', '', 1, '2024-06-10 10:26:58');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -110,33 +119,33 @@ ALTER TABLE `zgloszenia`
   ADD KEY `id_klienta` (`id_klienta`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT dla tabeli `klienci`
+-- AUTO_INCREMENT for table `klienci`
 --
 ALTER TABLE `klienci`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT dla tabeli `zgloszenia`
+-- AUTO_INCREMENT for table `zgloszenia`
 --
 ALTER TABLE `zgloszenia`
-  MODIFY `id_zgloszenia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_zgloszenia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Ograniczenia dla zrzutów tabel
+-- Constraints for dumped tables
 --
 
 --
--- Ograniczenia dla tabeli `konta`
+-- Constraints for table `konta`
 --
 ALTER TABLE `konta`
   ADD CONSTRAINT `konta_ibfk_1` FOREIGN KEY (`id_klienta`) REFERENCES `klienci` (`id`);
 
 --
--- Ograniczenia dla tabeli `zgloszenia`
+-- Constraints for table `zgloszenia`
 --
 ALTER TABLE `zgloszenia`
   ADD CONSTRAINT `zgloszenia_ibfk_1` FOREIGN KEY (`id_klienta`) REFERENCES `klienci` (`id`);
