@@ -1,0 +1,36 @@
+@media (min-width: 480px){
+    .container {
+        background-color: rgb(113, 238, 255);
+        color: #665130;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column; 
+        text-align: center;
+        width: 100%; 
+        
+    }
+    main {
+        flex-basis: 60%;
+        
+    }
+    aside {
+        flex-basis:40%;
+        
+    }
+    .all {
+        display: flex; 
+        flex-wrap: wrap;
+        width: 100%;
+        box-sizing: border-box;
+    }}
+@media (max-width: 480px){
+    .container {
+        background-color: #271f1f;
+        color: aliceblue;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column; 
+        text-align: center;
+        width: 100%; 
+    }
+ }
