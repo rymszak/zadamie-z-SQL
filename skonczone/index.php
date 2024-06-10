@@ -107,9 +107,9 @@ $conn->close();
                         </select>
                     </label><br>
                     <label for="priority">Priorytet<br>
-                        niski<input type="radio" name="priority" id="low" value="2" checked>
-                        średni<input type="radio" name="priority" id="mid" value="1">
-                        wysoki<input type="radio" name="priority" id="high" value="0">
+                        niski<input type="radio" name="priority" id="low" value="3" checked>
+                        średni<input type="radio" name="priority" id="mid" value="2">
+                        wysoki<input type="radio" name="priority" id="high" value="1">
                     </label><br>
                     <label for="comment">Komentarz: <textarea id="comment" name="comment"><?php echo htmlspecialchars($comment); ?></textarea></label><br>
                     <button type="submit" name="send" id="send">prześlij zgłoszenie</button>
